@@ -13,12 +13,13 @@ RSpec.configure do |c|
   c.before :suite do
     # Install module to all hosts
     hosts.each do |host|
-      install_dev_puppet_module_on(host, :source => module_root, :module_name => 'mysql',
-          :target_module_path => '/etc/puppet/modules')
+      install_dev_puppet_module_on(host, source: module_root)
       # Install dependencies
       on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
+      on(host, puppet('module', 'install', 'puppetlabs-apt'))
 
       # Add more setup code as needed
+      apply_manifest_on(host, "package { 'net-tools': ensure => installed }") if host.platform =~ /(debian|ubuntu)/
     end
   end
 end
