@@ -5,4 +5,7 @@
 # @example
 #   include proxysql
 class proxysql {
+
+  include proxysql::repo
+
 }
