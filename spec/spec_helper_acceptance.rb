@@ -1,6 +1,6 @@
 require 'beaker-rspec'
 
-logger.error("LOADED Puppet ProxySQL Module Spec Acceptance Helper")
+logger.error('LOADED Puppet ProxySQL Module Spec Acceptance Helper')
 
 # Install Puppet agent on all hosts
 install_puppet_agent_on(hosts, {})
