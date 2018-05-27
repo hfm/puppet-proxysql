@@ -17,9 +17,6 @@ RSpec.configure do |c|
       # Install dependencies
       on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
       on(host, puppet('module', 'install', 'puppetlabs-apt'))
-
-      # Add more setup code as needed
-      apply_manifest_on(host, "package { 'net-tools': ensure => installed }") if host.platform =~ /(debian|ubuntu)/
     end
   end
 end
