@@ -2,8 +2,8 @@ require 'beaker-rspec'
 
 logger.error("LOADED MYYYYYYYYYY Spec Acceptance Helper")
 
-# Install Puppet on all hosts
-install_puppet_on(hosts, options)
+# Install Puppet agent on all hosts
+install_puppet_agent_on(hosts, {})
 
 RSpec.configure do |c|
   module_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
