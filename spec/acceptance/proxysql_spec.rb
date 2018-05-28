@@ -17,34 +17,34 @@ describe 'proxysql class' do
 
   context 'RedHat', if: os[:family] == 'redhat' do
     describe yumrepo('proxysql_repo') do
-      it { should exist }
-      it { should be_enabled }
+      it { is_expected.to exist }
+      it { is_expected.to be_enabled }
     end
 
     describe file('/etc/yum.repos.d/stns.repo') do
-      it { should be_file }
+      it { is_expected.to be_file }
     end
   end
 
-  context 'Debian', if: os[:family] =~ /^(ubuntu|debian)$/ do
+  context 'Debian', if: os[:family] =~ %r{^(ubuntu|debian)$} do
     describe package('lsb-release') do
-      it { should be_installed }
+      it { is_expected.to be_installed }
     end
 
     describe file('/etc/apt/sources.list.d/proxysql.list') do
       let(:distro) { Specinfra.backend.run_command('lsb_release -s -c').stdout.strip }
 
-      it { should be_file }
-      its(:content) { should match %r{^deb\s+http://repo.proxysql.com/ProxySQL/proxysql-1.4.x/#{distro}\s+\./$} }
+      it { is_expected.to be_file }
+      its(:content) { is_expected.to match %r{^deb\s+http://repo.proxysql.com/ProxySQL/proxysql-1.4.x/#{distro}\s+\./$} }
     end
   end
 
   describe package('proxysql') do
-    pending { should be_installed }
+    pending { is_expected.to be_installed }
   end
 
   describe service('proxysql') do
-    pending { should be_enabled }
-    pending { should be_running }
+    pending { is_expected.to be_enabled }
+    pending { is_expected.to be_running }
   end
 end
