@@ -40,11 +40,11 @@ describe 'proxysql class' do
   end
 
   describe package('proxysql') do
-    pending { is_expected.to be_installed }
+    it { is_expected.to be_installed }
   end
 
   describe service('proxysql') do
-    pending { is_expected.to be_enabled }
-    pending { is_expected.to be_running }
+    it { is_expected.to be_enabled }
+    it { is_expected.to be_running }
   end
 end

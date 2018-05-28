@@ -17,6 +17,7 @@ class proxysql::repo {
       }
 
       include ::apt
+      require ::apt::update
     }
     'CentOS', 'OracleLinux', 'RedHat', 'Scientific': {
       yumrepo { 'proxysql':
