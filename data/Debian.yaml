@@ -5,7 +5,7 @@ apt::sources:
     repos: './'
     key:
       id: '1448BF693CA600C799EB935804A562FB79953B49'
-      server: 'keyserver.ubuntu.com'
+      source: 'http://repo.proxysql.com/ProxySQL/repo_pub_key'
     include:
       src: false
       deb: true
