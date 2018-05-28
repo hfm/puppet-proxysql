@@ -21,7 +21,7 @@ describe 'proxysql class' do
       it { is_expected.to be_enabled }
     end
 
-    describe file('/etc/yum.repos.d/stns.repo') do
+    describe file('/etc/yum.repos.d/proxysql.repo') do
       it { is_expected.to be_file }
     end
   end
