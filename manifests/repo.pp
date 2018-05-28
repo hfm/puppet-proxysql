@@ -19,7 +19,7 @@ class proxysql::repo {
       include ::apt
     }
     'CentOS', 'OracleLinux', 'RedHat', 'Scientific': {
-      yumrepo { 'proxysql_repo':
+      yumrepo { 'proxysql':
         baseurl  => 'http://repo.proxysql.com/ProxySQL/proxysql-1.4.x/centos/$releasever',
         descr    => 'ProxySQL YUM repository',
         enabled  => 1,
