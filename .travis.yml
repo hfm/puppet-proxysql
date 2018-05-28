@@ -37,6 +37,10 @@ matrix:
       env: CHECK=beaker BEAKER_set=xenial BEAKER_debug=true
       sudo: required
       services: docker
+    -
+      env: CHECK=beaker BEAKER_set=centos7 BEAKER_debug=true
+      sudo: required
+      services: docker
 branches:
   only:
     - master
