@@ -1,11 +1,11 @@
 apt::sources:
   'proxysql':
-    location: 'http://repo.proxysql.com/ProxySQL/proxysql-1.4.x/'
-    release: 'unstable'
+    location: 'http://repo.proxysql.com/ProxySQL/proxysql-1.4.x/%{facts.lsbdistcodename}'
+    release: ''
     repos: './'
     key:
       id: '1448BF693CA600C799EB935804A562FB79953B49'
-      server: 'http://repo.proxysql.com/ProxySQL/'
+      server: 'keyserver.ubuntu.com'
     include:
       src: false
       deb: true
