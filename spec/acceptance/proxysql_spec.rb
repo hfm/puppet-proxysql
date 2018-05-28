@@ -16,7 +16,7 @@ describe 'proxysql class' do
   end
 
   context 'RedHat', if: os[:family] == 'redhat' do
-    describe yumrepo('proxysql_repo') do
+    describe yumrepo('proxysql') do
       it { is_expected.to exist }
       it { is_expected.to be_enabled }
     end
