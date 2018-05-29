@@ -39,6 +39,10 @@ describe 'proxysql class' do
     end
   end
 
+  describe file('/etc/proxysql.cnf') do
+    it { is_expected.to be_file }
+  end
+
   describe package('proxysql') do
     it { is_expected.to be_installed }
   end

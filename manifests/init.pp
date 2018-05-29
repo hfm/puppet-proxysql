@@ -8,10 +8,12 @@ class proxysql {
 
   include proxysql::repo
   include proxysql::install
+  include proxysql::config
   include proxysql::service
 
   Class['::proxysql::repo']
   -> Class['::proxysql::install']
+  -> Class['::proxysql::config']
   ~> Class['::proxysql::service']
 
 }
