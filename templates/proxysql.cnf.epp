@@ -151,33 +151,3 @@ mysql_replication_hostgroups=
 #                comment="test repl 2"
 #        }
 )
-
-
-
-
-# http://www.hyperrealm.com/libconfig/libconfig_manual.html#Configuration-File-Grammar
-#
-# Below is the BNF grammar for configuration files. Comments and include directives are not part of the grammar, so they are not included here.
-#
-# configuration = setting-list | empty
-#
-# setting-list = setting | setting-list setting
-#
-# setting = name (":" | "=") value (";" | "," | empty)
-#
-# value = scalar-value | array | list | group
-#
-# value-list = value | value-list "," value
-#
-# scalar-value = boolean | integer | integer64 | hex | hex64 | float
-#                | string
-#
-# scalar-value-list = scalar-value | scalar-value-list "," scalar-value
-#
-# array = "[" (scalar-value-list | empty) "]"
-#
-# list = "(" (value-list | empty) ")"
-#
-# group = "{" (setting-list | empty) "}"
-#
-# empty =
