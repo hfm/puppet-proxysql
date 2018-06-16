@@ -17,10 +17,10 @@ class proxysql::service {
   }
 
   service { 'proxysql':
-    ensure    => running,
-    enable    => true,
-    provider  => 'systemd',
-    require   => Class['systemd::systemctl::daemon_reload'],
+    ensure   => running,
+    enable   => true,
+    provider => 'systemd',
+    require  => Class['systemd::systemctl::daemon_reload'],
   }
 
 }
