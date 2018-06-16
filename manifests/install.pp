@@ -10,4 +10,12 @@ class proxysql::install {
     ensure => installed,
   }
 
+  file {
+    '/var/lib/proxysql':
+      ensure => directory;
+
+    '/var/log/proxysql':
+      ensure => directory;
+  }
+
 }
