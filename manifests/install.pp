@@ -11,10 +11,10 @@ class proxysql::install {
   }
 
   file {
-    '/var/lib/proxysql':
+    $proxysql::datadir:
       ensure => directory;
 
-    '/var/log/proxysql':
+    $proxysql::logdir:
       ensure => directory;
   }
 

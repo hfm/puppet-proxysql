@@ -4,7 +4,11 @@
 #
 # @example
 #   include proxysql
-class proxysql {
+class proxysql (
+  Stdlib::Absolutepath $configfile,
+  Stdlib::Absolutepath $datadir,
+  Stdlib::Absolutepath $logdir,
+) {
 
   include proxysql::repo
   include proxysql::install
