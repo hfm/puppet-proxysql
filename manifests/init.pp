@@ -8,6 +8,7 @@ class proxysql (
   Stdlib::Absolutepath $configfile,
   Stdlib::Absolutepath $datadir,
   Stdlib::Absolutepath $logdir,
+  String               $package_ensure,
 ) {
 
   include proxysql::repo

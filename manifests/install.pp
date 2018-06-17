@@ -7,7 +7,7 @@
 class proxysql::install {
 
   package { 'proxysql':
-    ensure => installed,
+    ensure => $proxysql::package_ensure,
   }
 
   file {

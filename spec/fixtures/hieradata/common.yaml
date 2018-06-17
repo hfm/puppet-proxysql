@@ -2,3 +2,4 @@
 proxysql::configfile: '/etc/proxysql.cnf'
 proxysql::datadir: '/var/lib/proxysql'
 proxysql::logdir: '/var/log/proxysql'
+proxysql::package_ensure: 'installed'
