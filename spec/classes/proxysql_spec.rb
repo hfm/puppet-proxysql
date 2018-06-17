@@ -13,7 +13,7 @@ describe 'proxysql' do
       it { is_expected.to contain_class('proxysql::config').that_requires('Class[proxysql::install]') }
       it { is_expected.to contain_class('proxysql::service').that_subscribes_to('Class[proxysql::config]') }
 
-      if os_facts[:operatingsystem] =~ /Debian|Ubuntu/
+      if os_facts[:operatingsystem] =~ %r{Debian|Ubuntu}
         it { is_expected.to contain_package('lsb-release') }
       else
         it { is_expected.not_to contain_package('lsb-release') }
