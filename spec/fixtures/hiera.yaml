@@ -1,0 +1,10 @@
+---
+version: 5
+defaults:
+  data_hash: yaml_data
+  datadir: spec/fixtures/hieradata
+hierarchy:
+  - name: "Per-OS defaults"
+    path: "%{facts.os.family}.yaml"
+  - name: "Common data"
+    path: "common.yaml"
