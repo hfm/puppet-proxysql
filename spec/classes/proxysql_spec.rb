@@ -15,14 +15,10 @@ describe 'proxysql' do
 
       if os_facts[:operatingsystem] =~ %r{Debian|Ubuntu}
         it { is_expected.to contain_package('lsb-release') }
+        it { is_expected.not_to contain_yumrepo('proxysql') }
       else
         it { is_expected.not_to contain_package('lsb-release') }
-      end
-
-      if os_facts[:os]['family'] == 'RedHat'
         it { is_expected.to contain_yumrepo('proxysql') }
-      else
-        it { is_expected.not_to contain_yumrepo('proxysql') }
       end
 
       it { is_expected.to contain_package('proxysql') }
