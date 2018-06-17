@@ -9,12 +9,6 @@ class proxysql::repo {
   case $facts['operatingsystem'] {
     'Debian', 'Ubuntu': {
       ensure_packages('lsb-release')
-      if !defined(Package['lsb-release']) {
-        package { 'lsb-release':
-          ensure => installed,
-          before => Apt::Source['proxysql'],
-        }
-      }
 
       include ::apt
       require ::apt::update
