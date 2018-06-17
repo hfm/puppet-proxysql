@@ -41,6 +41,17 @@ describe 'proxysql class' do
 
   describe file('/etc/proxysql.cnf') do
     it { is_expected.to be_file }
+    it { should be_owned_by 'root' }
+    it { should be_grouped_into 'root' }
+    it { should be_mode 640 }
+  end
+
+  describe file('/var/lib/proxysql') do
+    it { is_expected.to be_directory }
+  end
+
+  describe file('/var/log/proxysql') do
+    it { is_expected.to be_directory }
   end
 
   describe package('proxysql') do
@@ -49,6 +60,6 @@ describe 'proxysql class' do
 
   describe service('proxysql') do
     it { is_expected.to be_enabled }
-    it { is_expected.to be_running }
+    it { is_expected.to be_running.under('systemd') }
   end
 end
