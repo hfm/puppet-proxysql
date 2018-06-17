@@ -6,7 +6,7 @@
 #   include proxysql::config
 class proxysql::config {
 
-  file { '/etc/proxysql.cnf':
+  file { $proxysql::configfile:
     ensure  => file,
     owner   => 'root',
     group   => 'root',

@@ -1,0 +1,10 @@
+[Unit]
+Description=ProxySQL
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/proxysql -f -c <%= $proxysql_cnf %>
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

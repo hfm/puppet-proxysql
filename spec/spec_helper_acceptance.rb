@@ -17,6 +17,7 @@ RSpec.configure do |c|
       # Install dependencies
       on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
       on(host, puppet('module', 'install', 'puppetlabs-apt'))
+      on(host, puppet('module', 'install', 'camptocamp-systemd'))
 
       host[:hieradatadir] = 'hieradata'
       write_hiera_config_on(host, ['%{facts.os.family}', 'common'])
