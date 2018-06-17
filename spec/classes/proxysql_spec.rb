@@ -7,9 +7,9 @@ describe 'proxysql' do
 
       it { is_expected.to compile.with_all_deps }
 
-      it { is_expected.to contain_class('proxysql').that_requires('Class[proxysql::repo]') }
+      it { is_expected.to contain_class('proxysql') }
       it { is_expected.to contain_class('proxysql::repo') }
-      it { is_expected.to contain_class('proxysql::install') }
+      it { is_expected.to contain_class('proxysql::install').that_requires('Class[proxysql::repo]') }
       it { is_expected.to contain_class('proxysql::config').that_requires('Class[proxysql::install]') }
       it { is_expected.to contain_class('proxysql::service').that_subscribes_to('Class[proxysql::config]') }
 
