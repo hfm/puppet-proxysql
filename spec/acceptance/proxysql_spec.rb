@@ -39,11 +39,16 @@ describe 'proxysql class' do
     end
   end
 
+  describe package('proxysql') do
+    it { is_expected.to be_installed }
+  end
+
   describe file('/etc/proxysql.cnf') do
     it { is_expected.to be_file }
     it { should be_owned_by 'root' }
     it { should be_grouped_into 'root' }
     it { should be_mode 640 }
+    its(:content) { is_expected.to match %r{^datadir="/var/lib/proxysql"$} }
   end
 
   describe file('/var/lib/proxysql') do
@@ -54,8 +59,9 @@ describe 'proxysql class' do
     it { is_expected.to be_directory }
   end
 
-  describe package('proxysql') do
-    it { is_expected.to be_installed }
+  describe file('/etc/systemd/system/proxysql.service') do
+    it { is_expected.to be_file }
+    its(:content) { is_expected.to match %r{^ExecStart=/usr/bin/proxysql -f -c /etc/proxysql.cnf$} }
   end
 
   describe service('proxysql') do
