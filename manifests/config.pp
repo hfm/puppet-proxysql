@@ -11,7 +11,7 @@ class proxysql::config {
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
-    content => template('proxysql/proxysql.cnf.epp'),
+    content => epp('proxysql/proxysql.cnf.epp'),
   }
 
 }

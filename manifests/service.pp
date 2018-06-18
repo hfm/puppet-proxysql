@@ -7,7 +7,7 @@
 class proxysql::service {
 
   systemd::unit_file { 'proxysql.service':
-    content => template('proxysql/proxysql.service.epp'),
+    content => epp('proxysql/proxysql.service.epp'),
     notify  => Service['proxysql'],
   }
 
