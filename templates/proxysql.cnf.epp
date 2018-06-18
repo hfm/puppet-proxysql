@@ -6,7 +6,7 @@
 
 
 
-datadir="/var/lib/proxysql"
+datadir="<%= $proxysql::datadir %>"
 
 admin_variables=
 {
