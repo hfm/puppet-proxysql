@@ -1,11 +1,4 @@
-#file proxysql.cfg
-
-# This config file is parsed using libconfig , and its grammar is described in:
-# http://www.hyperrealm.com/libconfig/libconfig_manual.html#Configuration-File-Grammar
-# Grammar is also copied at the end of this file
-
-
-
+# Managed by Puppet
 datadir="<%= $proxysql::datadir %>"
 
 admin_variables=
