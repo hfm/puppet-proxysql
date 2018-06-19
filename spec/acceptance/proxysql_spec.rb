@@ -45,9 +45,9 @@ describe 'proxysql class' do
 
   describe file('/etc/proxysql.cnf') do
     it { is_expected.to be_file }
-    it { should be_owned_by 'root' }
-    it { should be_grouped_into 'root' }
-    it { should be_mode 640 }
+    it { is_expected.to be_owned_by 'root' }
+    it { is_expected.to be_grouped_into 'root' }
+    it { is_expected.to be_mode 640 }
     its(:content) { is_expected.to match %r{^datadir="/var/lib/proxysql"$} }
   end
 
