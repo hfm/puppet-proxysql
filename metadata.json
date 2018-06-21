@@ -4,7 +4,7 @@
   "author": "hfm",
   "summary": "",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/hfm/puppet-proxysql",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
