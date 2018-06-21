@@ -2,7 +2,7 @@
   "name": "hfm-proxysql",
   "version": "0.1.0",
   "author": "hfm",
-  "summary": "",
+  "summary": "Install, configures, and manages ProxySQL",
   "license": "MIT",
   "source": "https://github.com/hfm/puppet-proxysql",
   "dependencies": [
