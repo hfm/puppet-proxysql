@@ -5,10 +5,17 @@
 # @example
 #   include proxysql
 class proxysql (
-  Stdlib::Absolutepath $configfile,
-  Stdlib::Absolutepath $datadir,
-  Stdlib::Absolutepath $logdir,
-  String               $package_ensure,
+  String                  $package_ensure,
+  Stdlib::Absolutepath    $datadir,
+  Stdlib::Filemode        $datadir_mode,
+  Stdlib::Absolutepath    $logdir,
+  Stdlib::Filemode        $logdir_mode,
+  Stdlib::Absolutepath    $configfile,
+  String                  $configfile_owner,
+  String                  $configfile_group,
+  Stdlib::Filemode        $configfile_mode,
+  Stdlib::Ensure::Service $service_ensure,
+  Boolean                 $service_enable,
 ) {
 
   include proxysql::repo

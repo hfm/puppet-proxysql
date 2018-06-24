@@ -11,11 +11,14 @@ class proxysql::install {
   }
 
   file {
-    $proxysql::datadir:
+    default:
       ensure => directory;
 
+    $proxysql::datadir:
+      mode   => $proxysql::datadir_mode;
+
     $proxysql::logdir:
-      ensure => directory;
+      mode   => $proxysql::logdir_mode;
   }
 
 }

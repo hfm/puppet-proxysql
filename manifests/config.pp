@@ -8,9 +8,9 @@ class proxysql::config {
 
   file { $proxysql::configfile:
     ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0640',
+    owner   => $proxysql::configfile_owner,
+    group   => $proxysql::configfile_group,
+    mode    => $proxysql::configfile_mode,
     content => epp('proxysql/proxysql.cnf.epp'),
   }
 

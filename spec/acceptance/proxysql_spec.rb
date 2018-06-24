@@ -47,16 +47,18 @@ describe 'proxysql class' do
     it { is_expected.to be_file }
     it { is_expected.to be_owned_by 'root' }
     it { is_expected.to be_grouped_into 'root' }
-    it { is_expected.to be_mode 640 }
+    it { is_expected.to be_mode 600 }
     its(:content) { is_expected.to match %r{^datadir="/var/lib/proxysql"$} }
   end
 
   describe file('/var/lib/proxysql') do
     it { is_expected.to be_directory }
+    it { is_expected.to be_mode 700 }
   end
 
   describe file('/var/log/proxysql') do
     it { is_expected.to be_directory }
+    it { is_expected.to be_mode 700 }
   end
 
   describe file('/etc/systemd/system/proxysql.service') do
