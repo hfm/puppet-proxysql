@@ -5,6 +5,7 @@
 1. [Description](#description)
 2. [Setup - The basics of getting started with proxysql](#setup)
     * [Setup requirements](#setup-requirements)
+    * [Beginning with proxysql](#beginning-with-proxysql)
 3. [Usage - Configuration options and additional functionality](#usage)
 4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
@@ -25,6 +26,14 @@ The proxysql module requires the following puppet module:
 - [puppetlabs-apt](https://forge.puppet.com/puppetlabs/apt): version 4.x (only Debian-based distributions).
 
 note: puppetlabs-apt is soft dependencies. If you are installing on Debian systems, you will need to configure appropriate versions of this module.
+
+### Beginning with proxysql
+
+To set up the proxysql with default parameters, declare the `proxysql` class like the following:
+
+```puppet
+include ::proxysql
+```
 
 ## Usage
 
