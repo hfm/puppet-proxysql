@@ -26,6 +26,8 @@ The proxysql module requires the following puppet module:
 - [camptocamp-systemd](https://forge.puppet.com/camptocamp/systemd): version 1.x
 - [puppetlabs-apt](https://forge.puppet.com/puppetlabs/apt): version 4.x (only Debian-based distributions).
 
+note: puppetlabs-apt is soft dependencies. If you are installing on Debian systems, you will need to configure appropriate versions of this module.
+
 ## Usage
 
 This section is where you describe how to customize, configure, and do the fancy stuff with your module here. It's especially helpful if you include usage examples and code samples for doing things with your module.
