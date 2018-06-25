@@ -37,7 +37,30 @@ include ::proxysql
 
 ## Usage
 
-This section is where you describe how to customize, configure, and do the fancy stuff with your module here. It's especially helpful if you include usage examples and code samples for doing things with your module.
+### Configuring modules in Puppet
+
+To set up the proxysql in Puppet codes, you can configure like the following:
+
+```puppet
+class { '::proxysql':
+  datadir      => '/var/lib/proxysql',
+  datadir_mode => '0750',
+  logdir       => '/var/log/proxysql',
+  logdir_mode  => '0750'.
+}
+```
+
+### Configuring modules from Hiera
+
+To set up ProxySQL using Hiera, you declare `include ::proxysql` in puppet manifests and configure in Hiera like the following:
+
+```yaml
+---
+proxysql::datadir: '/var/lib/proxysql'
+proxysql::datadir_mode: '0750'
+proxysql::logdir: '/var/log/proxysql'
+proxysql::logdir_mode: '0750'
+```
 
 ## Reference
 
