@@ -81,4 +81,30 @@ This is where you list OS compatibility, version compatibility, etc. If there ar
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
+### Running tests
+
+The proxysql puppet module contains tests for both [rspec-puppet](http://rspec-puppet.com) (unit tests) and [beaker-rspec](https://github.com/puppetlabs/beaker-rspec) (acceptance tests) to verify functionality. For detailed information on using these tools, please see their respective documentation.
+
+#### Testing quickstart
+
+- Unit tests:
+
+```console
+$ bundle install
+$ bundle exec rake
+```
+
+- Acceptance tests:
+
+```console
+# Set your DOCKER_HOST variable
+$ eval "$(docker-machine env default)"
+
+# List available beaker nodesets
+$ bundle exec rake beaker_nodes
+centos7
+debian9
+
+# Run beaker acceptance tests
+$ BEAKER_set=debian9 bundle exec rake beaker
+```
