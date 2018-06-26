@@ -8,6 +8,7 @@
     * [Beginning with proxysql](#beginning-with-proxysql)
 3. [Usage - Configuration options and additional functionality](#usage)
 4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+    * [Public Class: proxysql](#public-class-proxysql)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 
@@ -64,16 +65,30 @@ proxysql::logdir_mode: '0750'
 
 ## Reference
 
-Users need a complete list of your module's classes, types, defined types providers, facts, and functions, along with the parameters for each. You can provide this list either via Puppet Strings code comments or as a complete list in the README Reference section.
+### Public Class: `proxysql`
 
-* If you are using Puppet Strings code comments, this Reference section should include Strings information so that your users know how to access your documentation.
+#### parameters
 
-* If you are not using Puppet Strings, include a list of all of your classes, defined types, and so on, along with their parameters. Each element in this listing should include:
+Parameter | Data type | Description | Default
+---|---|---|---
+`package_ensure`   | String                  | What state the package should be in.                 | 'installed'
+`datadir`          | Stdlib::Absolutepath    | Path to data directory.                              | '/var/lib/proxysql'
+`datadir_mode`     | Stdlib::Filemode        | The permissions for the data directory.              | '0700'
+`logdir`           | Stdlib::Absolutepath    | Path to log directory.                               | '/var/log/proxysql'
+`logdir_mode`      | Stdlib::Filemode        | The permissions for the log directory.               | '0700'
+`configfile`       | Stdlib::Absolutepath    | Path to configuration file.                          | '/etc/proxysql.cnf'
+`configfile_owner` | String                  | The user of the config file.                         | 'root'
+`configfile_group` | String                  | The group of the config file.                        | 'root'
+`configfile_mode`  | Stdlib::Filemode        | The permissions for the config file.                 | '0600'
+`service_ensure`   | Stdlib::Ensure::Service | Whether proxysql should be running.                  | 'running'
+`service_enable`   | Boolean                 | Whether proxysql should be enabled to start at boot. | true
 
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
+#### Private Classes
+
+- `proxysql::repo`
+- `proxysql::install`
+- `proxysql::config`
+- `proxysql::service`
 
 ## Limitations
 
