@@ -16,6 +16,7 @@ class proxysql (
   Stdlib::Filemode        $configfile_mode,
   Stdlib::Ensure::Service $service_ensure,
   Boolean                 $service_enable,
+  Hash                    $configs,
 ) {
 
   include proxysql::repo

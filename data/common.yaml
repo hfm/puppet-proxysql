@@ -10,3 +10,4 @@ proxysql::configfile_group: 'root'
 proxysql::configfile_mode: '0600'
 proxysql::service_ensure: 'running'
 proxysql::service_enable: true
+proxysql::configs: {}
