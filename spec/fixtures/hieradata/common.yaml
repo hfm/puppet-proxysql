@@ -10,3 +10,4 @@ proxysql::logdir_mode: '0700'
 proxysql::package_ensure: 'installed'
 proxysql::service_ensure: 'running'
 proxysql::service_enable: true
+proxysql::configs: {}
