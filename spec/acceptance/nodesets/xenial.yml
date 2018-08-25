@@ -5,7 +5,7 @@ HOSTS:
     hypervisor: docker
     docker_cmd: '["/sbin/init"]'
     docker_image_commands:
-      - 'apt-get install -y sudo wget'
+      - 'apt-get install -y sudo wget net-tools'
 CONFIG:
   type: foss
   masterless: true
