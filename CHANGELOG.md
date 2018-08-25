@@ -1,11 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## [v0.1.0](https://github.com/hfm/puppet-proxysql/compare/...v0.1.0) (2018-08-26)
 
-## Release 0.1.0
-
-**Features**
-
-**Bugfixes**
-
-**Known Issues**
+Initial release
