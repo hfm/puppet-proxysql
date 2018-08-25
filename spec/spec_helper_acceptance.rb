@@ -15,7 +15,7 @@ RSpec.configure do |c|
     hosts.each do |host|
       install_dev_puppet_module_on(host, source: module_root)
       # Install dependencies
-      on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
+      on(host, puppet('module', 'install', 'puppetlabs-stdlib', '--version', '4.25.1'))
       on(host, puppet('module', 'install', 'puppetlabs-apt'))
       on(host, puppet('module', 'install', 'camptocamp-systemd'))
 
