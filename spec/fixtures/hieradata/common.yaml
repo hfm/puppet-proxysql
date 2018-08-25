@@ -38,8 +38,3 @@ proxysql::configs:
     commands_stats: true
     sessions_sort: true
     connect_retries_on_failure: 10
-  mysql_servers: {}
-  mysql_users: {}
-  mysql_query_rules: {}
-  scheduler: {}
-  mysql_replication_hostgroups: {}
