@@ -61,6 +61,28 @@ proxysql::datadir: '/var/lib/proxysql'
 proxysql::datadir_mode: '0750'
 proxysql::logdir: '/var/log/proxysql'
 proxysql::logdir_mode: '0750'
+proxysql::configs:
+  admin_variables:
+    admin_credentials: 'admin:admin;remoteadmin:remateadminpass'
+    mysql_ifaces: '0.0.0.0:6032'
+  mysql_variables:
+    threads: 8
+    max_connections: 4096
+    interfaces: '0.0.0.0:3306'
+    stacksize: 1048576
+    ping_interval_server_msec: 10000
+  mysql_servers:
+    address: mysql
+    port: 3306
+    hostgroup: 0
+  mysql_users:
+    username: root
+  mysql_query_rules:
+    rule_id: 1
+    active: 1
+    match_pattern: '.'
+    log: 1
+    apply: 0
 ```
 
 ## Reference
@@ -82,6 +104,7 @@ Parameter | Data type | Description | Default
 `configfile_mode`  | Stdlib::Filemode        | The permissions for the config file.                 | '0600'
 `service_ensure`   | Stdlib::Ensure::Service | Whether proxysql should be running.                  | 'running'
 `service_enable`   | Boolean                 | Whether proxysql should be enabled to start at boot. | true
+`configs`          | Hash                    | The Configuration hashes for proxysql.cnf            | See [data/common.yaml](./data/common.yaml)
 
 #### Private Classes
 
