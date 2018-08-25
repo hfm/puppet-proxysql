@@ -70,4 +70,12 @@ describe 'proxysql class' do
     it { is_expected.to be_enabled }
     it { is_expected.to be_running.under('systemd') }
   end
+
+  describe port(6032) do
+    it { should be_listening.on('0.0.0.0').with('tcp') }
+  end
+
+  describe port(6033) do
+    it { should be_listening.on('0.0.0.0').with('tcp') }
+  end
 end
