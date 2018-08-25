@@ -33,11 +33,10 @@ group :development do
   gem "puppet-module-posix-dev-r#{minor_version}",     require: false, platforms: [:ruby]
   gem "puppet-module-win-default-r#{minor_version}",   require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "puppet-module-win-dev-r#{minor_version}",       require: false, platforms: [:mswin, :mingw, :x64_mingw]
-  gem "puppet-blacksmith", '~> 3.4',                   require: false, platforms: [:ruby]
 end
 
 group :acceptance do
-  gem 'beaker-puppet', require: false
+  gem 'beaker', '~> 3.0', require: false
   gem 'beaker-rspec',  require: false
 end
 
