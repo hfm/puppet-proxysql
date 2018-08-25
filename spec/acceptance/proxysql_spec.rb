@@ -72,10 +72,10 @@ describe 'proxysql class' do
   end
 
   describe port(6032) do
-    it { should be_listening.on('0.0.0.0').with('tcp') }
+    it { is_expected.to be_listening.on('0.0.0.0').with('tcp') }
   end
 
   describe port(6033) do
-    it { should be_listening.on('0.0.0.0').with('tcp') }
+    it { is_expected.to be_listening.on('0.0.0.0').with('tcp') }
   end
 end
