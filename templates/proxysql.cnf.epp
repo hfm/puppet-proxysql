@@ -3,14 +3,14 @@ datadir="<%= $proxysql::datadir %>"
 
 admin_variables=
 {
-<% $proxysql::configs['admin_variables'].each |k, v| { -%>
+<% $proxysql::configs['admin_variables'].each |$k, $v| { -%>
         <%= k -%>=<%= v -%>
 <% } -%>
 }
 
 mysql_variables=
 {
-<% $proxysql::configs['mysql_variables'].each |k, v| { -%>
+<% $proxysql::configs['mysql_variables'].each |$k, $v| { -%>
         <%= k -%>=<%= v -%>
 <% } -%>
 }
@@ -21,7 +21,7 @@ mysql_servers =
 (
 <% $proxysql::configs['mysql_servers'].each |hashes| { -%>
         {
-  <% $hashes.each |k, v| { -%>
+  <% $hashes.each |$k, $v| { -%>
                 <%= k -%>=<%= v -%>
   <% } -%>
         },
@@ -34,7 +34,7 @@ mysql_users:
 (
 <% $proxysql::configs['mysql_users'].each |hashes| { -%>
         {
-  <% $hashes.each |k, v| { -%>
+  <% $hashes.each |$k, $v| { -%>
                 <%= k -%>=<%= v -%>
   <% } -%>
         },
@@ -48,7 +48,7 @@ mysql_query_rules:
 (
 <% $proxysql::configs['mysql_query_rules'].each |hashes| { -%>
         {
-  <% $hashes.each |k, v| { -%>
+  <% $hashes.each |$k, $v| { -%>
                 <%= k -%>=<%= v -%>
   <% } -%>
         },
@@ -59,7 +59,7 @@ scheduler=
 (
 <% $proxysql::configs['scheduler'].each |hashes| { -%>
         {
-  <% $hashes.each |k, v| { -%>
+  <% $hashes.each |$k, $v| { -%>
                 <%= k -%>=<%= v -%>
   <% } -%>
         },
@@ -71,7 +71,7 @@ mysql_replication_hostgroups=
 (
 <% $proxysql::configs['mysql_replication_hostgroups'].each |hashes| { -%>
         {
-  <% $hashes.each |k, v| { -%>
+  <% $hashes.each |$k, $v| { -%>
                 <%= k -%>=<%= v -%>
   <% } -%>
         },
