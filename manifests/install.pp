@@ -1,9 +1,7 @@
-# A description of what this class does
+# @summary Install the proxysql package and setup directories.
 #
-# @summary A short summary of the purpose of this class
+# @private
 #
-# @example
-#   include proxysql::install
 class proxysql::install {
 
   package { 'proxysql':

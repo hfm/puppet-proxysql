@@ -1,9 +1,7 @@
-# A description of what this class does
+# @summary Setup the repository for proxysql
 #
-# @summary A short summary of the purpose of this class
+# @private
 #
-# @example
-#   include proxysql::repo
 class proxysql::repo {
 
   case $facts['operatingsystem'] {

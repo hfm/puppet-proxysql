@@ -1,9 +1,6 @@
-# A description of what this class does
+# @summary Configure proxysql.cnf
 #
-# @summary A short summary of the purpose of this class
-#
-# @example
-#   include proxysql::config
+# @private
 class proxysql::config {
 
   file { $proxysql::configfile:
