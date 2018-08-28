@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.16
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-puppet-proxysql+rdoc-image-3Ahttps-3A-2F-2Ftravis-ci.org-2Fhfm-2Fpuppet-proxysql.svg-3Fbranch-3Dmaster+rdoc-image-3Ahttps-3A-2F-2Fimg.shields.io-2Fpuppetforge-2Fv-2Fhfm-2Fproxysql.svg-3Fstyle-3Dflat-square">puppet-proxysql <a href="https://travis-ci.org/hfm/puppet-proxysql"><img src="https://travis-ci.org/hfm/puppet-proxysql.svg?branch=master"></a> <a href="https://forge.puppetlabs.com/hfm/proxysql"><img src="https://img.shields.io/puppetforge/v/hfm/proxysql.svg?style=flat-square"></a></h1>
+
+<h4 id="label-Table+of+Contents">Table of Contents</h4>
+<ol><li>
+<p><a href="#label-Description">Description</a></p>
+</li><li>
+<p><a href="#label-Setup">Setup - The basics of getting started with proxysql</a></p>
+<ul><li>
+<p><a href="#label-Setup+requirements">Setup requirements</a></p>
+</li><li>
+<p><a href="#label-Beginning+with+proxysql">Beginning with proxysql</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Usage">Usage - Configuration options and additional
+functionality</a></p>
+</li><li>
+<p><a href="#label-Reference">Reference - An under-the-hood peek at what the module
+is doing and how</a></p>
+<ul><li>
+<p><a href="#label-Public+class+proxysql">Public Class: proxysql</a></p>
+</li></ul>
+</li><li>
+<p><a href="#label-Limitations">Limitations - OS compatibility, etc.</a></p>
+</li><li>
+<p><a href="#label-Development">Development - Guide for contributing to the
+module</a></p>
+</li></ol>
+
+<h2 id="label-Description">Description</h2>
+
+<p>The proxysql module handles installing, configuring, and running <a
+href="http://www.proxysql.com">ProxySQL</a>.</p>
+
+<h2 id="label-Setup">Setup</h2>
+
+<h3 id="label-Setup+Requirements">Setup Requirements</h3>
+
+<p>The proxysql module requires the following puppet module:</p>
+<ul><li>
+<p><a href="https://forge.puppet.com/puppetlabs/stdlib">puppetlabs-stdlib</a>:
+version 4.6.x or newer</p>
+</li><li>
+<p><a
+href="https://forge.puppet.com/camptocamp/systemd">camptocamp-systemd</a>:
+version 1.x</p>
+</li><li>
+<p><a href="https://forge.puppet.com/puppetlabs/apt">puppetlabs-apt</a>:
+version 4.x (only Debian-based distributions).</p>
+</li></ul>
+
+<p>note: puppetlabs-apt is soft dependencies. If you are installing on Debian
+systems, you will need to configure appropriate versions of this module.</p>
+
+<h3 id="label-Beginning+with+proxysql">Beginning with proxysql</h3>
+
+<p>To set up the proxysql with default parameters, declare the
+<code>proxysql</code> class like the following:</p>
+
+<pre class="code ruby"><code class="ruby">include ::proxysql
+</code></pre>
+
+<h2 id="label-Usage">Usage</h2>
+
+<h3 id="label-Configuring+modules+in+Puppet">Configuring modules in Puppet</h3>
+
+<p>To set up the proxysql in Puppet codes, you can configure like the
+following:</p>
+
+<pre class="code ruby"><code class="ruby">class { &#39;::proxysql&#39;:
+  datadir      =&gt; &#39;/var/lib/proxysql&#39;,
+  datadir_mode =&gt; &#39;0750&#39;,
+  logdir       =&gt; &#39;/var/log/proxysql&#39;,
+  logdir_mode  =&gt; &#39;0750&#39;.
+}
+</code></pre>
+
+<h3 id="label-Configuring+modules+from+Hiera">Configuring modules from Hiera</h3>
+
+<p>To set up ProxySQL using Hiera, you declare <code>include ::proxysql</code>
+in puppet manifests and configure in Hiera like the following:</p>
+
+<pre class="code ruby"><code class="ruby">---
+proxysql::datadir: &#39;/var/lib/proxysql&#39;
+proxysql::datadir_mode: &#39;0750&#39;
+proxysql::logdir: &#39;/var/log/proxysql&#39;
+proxysql::logdir_mode: &#39;0750&#39;
+proxysql::configs:
+  admin_variables:
+    admin_credentials: &#39;admin:admin;remoteadmin:remateadminpass&#39;
+    mysql_ifaces: &#39;0.0.0.0:6032&#39;
+  mysql_variables:
+    threads: 8
+    max_connections: 4096
+    interfaces: &#39;0.0.0.0:3306&#39;
+    stacksize: 1048576
+    ping_interval_server_msec: 10000
+  mysql_servers:
+    address: mysql
+    port: 3306
+    hostgroup: 0
+  mysql_users:
+    username: root
+  mysql_query_rules:
+    rule_id: 1
+    active: 1
+    match_pattern: &#39;.&#39;
+    log: 1
+    apply: 0
+</code></pre>
+
+<h2 id="label-Reference">Reference</h2>
+
+<h3 id="label-Public+Class-3A+proxysql">Public Class: <code>proxysql</code></h3>
+
+<h4 id="label-parameters">parameters</h4>
+
+<p>Parameter | Data type | Description | Default —|—|—|—
+<code>package_ensure</code> | String | What state the package should be in.
+| &#39;installed&#39; <code>datadir</code> | Stdlib::Absolutepath | Path to
+data directory. | &#39;/var/lib/proxysql&#39; <code>datadir_mode</code> |
+Stdlib::Filemode | The permissions for the data directory. | &#39;0700&#39;
+<code>logdir</code> | Stdlib::Absolutepath | Path to log directory. |
+&#39;/var/log/proxysql&#39; <code>logdir_mode</code> | Stdlib::Filemode |
+The permissions for the log directory. | &#39;0700&#39;
+<code>configfile</code> | Stdlib::Absolutepath | Path to configuration
+file. | &#39;/etc/proxysql.cnf&#39; <code>configfile_owner</code> | String
+| The user of the config file. | &#39;root&#39;
+<code>configfile_group</code> | String | The group of the config file. |
+&#39;root&#39; <code>configfile_mode</code> | Stdlib::Filemode | The
+permissions for the config file. | &#39;0600&#39;
+<code>service_ensure</code> | Stdlib::Ensure::Service | Whether proxysql
+should be running. | &#39;running&#39; <code>service_enable</code> |
+Boolean | Whether proxysql should be enabled to start at boot. | true
+<code>configs</code> | Hash | The Configuration hashes for proxysql.cnf |
+See <a href="./data/common.yaml">data/common.yaml</a></p>
+
+<h4 id="label-Private+Classes">Private Classes</h4>
+<ul><li>
+<p><code>proxysql::repo</code></p>
+</li><li>
+<p><code>proxysql::install</code></p>
+</li><li>
+<p><code>proxysql::config</code></p>
+</li><li>
+<p><code>proxysql::service</code></p>
+</li></ul>
+
+<h2 id="label-Limitations">Limitations</h2>
+
+<p>See <code>operatingsystem_support</code> in <a
+href="./metadata.json">metadata.json</a></p>
+
+<h2 id="label-Development">Development</h2>
+
+<h3 id="label-Running+tests">Running tests</h3>
+
+<p>The proxysql puppet module contains tests for both <a
+href="http://rspec-puppet.com">rspec-puppet</a> (unit tests) and <a
+href="https://github.com/puppetlabs/beaker-rspec">beaker-rspec</a>
+(acceptance tests) to verify functionality. For detailed information on
+using these tools, please see their respective documentation.</p>
+
+<h4 id="label-Testing+quickstart">Testing quickstart</h4>
+<ul><li>
+<p>Unit tests:</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby">$ bundle install
+$ bundle exec rake
+</code></pre>
+<ul><li>
+<p>Acceptance tests:</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"># Set your DOCKER_HOST variable
+$ eval &quot;$(docker-machine env default)&quot;
+
+# List available beaker nodesets
+$ bundle exec rake beaker_nodes
+centos7
+debian9
+
+# Run beaker acceptance tests
+$ BEAKER_set=debian9 bundle exec rake beaker
+</code></pre>
+</div></div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>

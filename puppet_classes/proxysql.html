@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: proxysql
+  
+    &mdash; Documentation by YARD 0.9.16
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::proxysql";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (p)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">proxysql</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: proxysql</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+
+  <h2>Summary</h2>
+  Install, configures, and manages ProxySQL
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+  </div>
+</div>
+
+
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>class { &#39;::proxysql&#39;:
+  datadir         =&gt; &#39;/var/lib/proxysql&#39;,
+  datadir_mode    =&gt; &#39;0750&#39;,
+  logdir          =&gt; &#39;/var/log/proxysql&#39;,
+  logdir_mode     =&gt; &#39;0750&#39;,
+  configs         =&gt; {
+    admin_variables =&gt; {
+      admin_credentials =&gt; &#39;admin:admin;remoteadmin:remateadminpass&#39;,
+      mysql_ifaces      =&gt; &#39;0.0.0.0:6032&#39;,
+    },
+    mysql_variables =&gt; {
+      threads                   =&gt; 8,
+      max_connections           =&gt; 4096,
+      interfaces                =&gt; &#39;0.0.0.0:3306&#39;,
+      stacksize                 =&gt; 1048576,
+      ping_interval_server_msec =&gt; 10000,
+    },
+    mysql_servers =&gt; {
+      address   =&gt; mysql,
+      port      =&gt; 3306,
+      hostgroup =&gt; 0,
+    },
+    mysql_users =&gt; {
+      username =&gt; root,
+    },
+    mysql_query_rules =&gt; {
+      rule_id       =&gt; 1,
+      active        =&gt; 1,
+      match_pattern =&gt; &#39;.&#39;,
+      log           =&gt; 1,
+      apply         =&gt; 0,
+    },
+  },
+}</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>package_ensure</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>What state the package should be in.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>datadir</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The path to the data directory.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>datadir_mode</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Filemode</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The desired permissions mode for the file, in symbolic or numeric notation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logdir</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The path to the log directory.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logdir_mode</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Filemode</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The desired permissions mode for the file, in symbolic or numeric notation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The path to the default configuration.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile_owner</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The user to whom the file should belong.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile_group</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Which group should own the file.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configfile_mode</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Filemode</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The desired permissions mode for the file, in symbolic or numeric notation.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_ensure</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Ensure::Service</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether a service should be running.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>service_enable</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether a service should be enabled to start at boot.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>A hash of parameters for configuring proxysql.cnf. See also <a
+href="https://github.com/sysown/proxysql/wiki/Configuring-ProxySQL">github.com/sysown/proxysql/wiki/Configuring-ProxySQL</a></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://github.com/sysown/proxysql/wiki" target="_parent" title="https://github.com/sysown/proxysql/wiki">https://github.com/sysown/proxysql/wiki</a></li>
+    
+      <li><a href="http://www.proxysql.com/" target="_parent" title="http://www.proxysql.com/">http://www.proxysql.com/</a></li>
+    
+  </ul>
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 67</span>
+
+class proxysql (
+  String                  $package_ensure,
+  Stdlib::Absolutepath    $datadir,
+  Stdlib::Filemode        $datadir_mode,
+  Stdlib::Absolutepath    $logdir,
+  Stdlib::Filemode        $logdir_mode,
+  Stdlib::Absolutepath    $configfile,
+  String                  $configfile_owner,
+  String                  $configfile_group,
+  Stdlib::Filemode        $configfile_mode,
+  Stdlib::Ensure::Service $service_ensure,
+  Boolean                 $service_enable,
+  Hash                    $configs,
+) {
+
+  include proxysql::repo
+  include proxysql::install
+  include proxysql::config
+  include proxysql::service
+
+  Class[&#39;::proxysql::repo&#39;]
+  -&gt; Class[&#39;::proxysql::install&#39;]
+  -&gt; Class[&#39;::proxysql::config&#39;]
+  ~&gt; Class[&#39;::proxysql::service&#39;]
+
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
