@@ -174,7 +174,9 @@ proxysql::configs:
 
 <h4 id="label-parameters">parameters</h4>
 
-<p>Parameter | Data type | Description | Default —|—|—|—
+<p>Parameter | Data type | Description | Default —|—|—|— <code>owner</code> |
+String | The user to run proxysql. | &#39;proxysql&#39; <code>group</code>
+| String | Which group should belong to proyxsql. | &#39;proxysql&#39;
 <code>package_ensure</code> | String | What state the package should be in.
 | &#39;installed&#39; <code>datadir</code> | Stdlib::Absolutepath | Path to
 data directory. | &#39;/var/lib/proxysql&#39; <code>datadir_mode</code> |
@@ -183,11 +185,8 @@ Stdlib::Filemode | The permissions for the data directory. | &#39;0700&#39;
 &#39;/var/log/proxysql&#39; <code>logdir_mode</code> | Stdlib::Filemode |
 The permissions for the log directory. | &#39;0700&#39;
 <code>configfile</code> | Stdlib::Absolutepath | Path to configuration
-file. | &#39;/etc/proxysql.cnf&#39; <code>configfile_owner</code> | String
-| The user of the config file. | &#39;root&#39;
-<code>configfile_group</code> | String | The group of the config file. |
-&#39;root&#39; <code>configfile_mode</code> | Stdlib::Filemode | The
-permissions for the config file. | &#39;0600&#39;
+file. | &#39;/etc/proxysql.cnf&#39; <code>configfile_mode</code> |
+Stdlib::Filemode | The permissions for the config file. | &#39;0600&#39;
 <code>service_ensure</code> | Stdlib::Ensure::Service | Whether proxysql
 should be running. | &#39;running&#39; <code>service_enable</code> |
 Boolean | Whether proxysql should be enabled to start at boot. | true

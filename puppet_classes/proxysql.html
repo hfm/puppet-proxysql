@@ -129,6 +129,38 @@
   
     <li>
       
+        <span class='name'>owner</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The user to run proxysql.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Which group should belong to proyxsql.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>package_ensure</span>
       
       
@@ -219,38 +251,6 @@
         &mdash;
         <div class='inline'>
 <p>The path to the default configuration.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>configfile_owner</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>The user to whom the file should belong.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>configfile_group</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Which group should own the file.</p>
 </div>
       
     </li>
@@ -370,14 +370,14 @@ href="https://github.com/sysown/proxysql/wiki/Configuring-ProxySQL">github.com/s
         <pre class="code"><span class="info file"># File 'manifests/init.pp', line 67</span>
 
 class proxysql (
+  String                  $owner,
+  String                  $group,
   String                  $package_ensure,
   Stdlib::Absolutepath    $datadir,
   Stdlib::Filemode        $datadir_mode,
   Stdlib::Absolutepath    $logdir,
   Stdlib::Filemode        $logdir_mode,
   Stdlib::Absolutepath    $configfile,
-  String                  $configfile_owner,
-  String                  $configfile_group,
   Stdlib::Filemode        $configfile_mode,
   Stdlib::Ensure::Service $service_ensure,
   Boolean                 $service_enable,
