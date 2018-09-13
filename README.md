@@ -72,17 +72,17 @@ proxysql::configs:
     stacksize: 1048576
     ping_interval_server_msec: 10000
   mysql_servers:
-    address: mysql
-    port: 3306
-    hostgroup: 0
+    - address: mysql
+      port: 3306
+      hostgroup: 0
   mysql_users:
-    username: root
+    - username: root
   mysql_query_rules:
-    rule_id: 1
-    active: 1
-    match_pattern: '.'
-    log: 1
-    apply: 0
+    - rule_id: 1
+      active: 1
+      match_pattern: '.'
+      log: 1
+      apply: 0
 ```
 
 ## Reference
