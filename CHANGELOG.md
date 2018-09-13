@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.3.0](https://github.com/hfm/puppet-proxysql/compare/v0.2.1...v0.3.0) (2018-09-13)
+
+* Support camptocamp/systemd v2.x [#10](https://github.com/hfm/puppet-proxysql/pull/10) ([hfm](https://github.com/hfm))
+
 ## [v0.2.1](https://github.com/hfm/puppet-proxysql/compare/v0.2.0...v0.2.1) (2018-09-13)
 
 * If using root, doesn't call user or group resource [#9](https://github.com/hfm/puppet-proxysql/pull/9) ([hfm](https://github.com/hfm))
