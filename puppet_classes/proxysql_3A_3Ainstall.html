@@ -122,22 +122,30 @@
 32
 33
 34
-35</pre>
+35
+36
+37
+38
+39</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/install.pp', line 5</span>
 
 class proxysql::install {
 
-  user { $proxysql::owner:
-    ensure =&gt; present,
-    gid    =&gt; $proxysql::group,
-    system =&gt; true,
+  if $proxysql::owner != &#39;root&#39; {
+    user { $proxysql::owner:
+      ensure =&gt; present,
+      gid    =&gt; $proxysql::group,
+      system =&gt; true,
+    }
   }
 
-  group { $proxysql::group:
-    ensure =&gt; present,
-    system =&gt; true,
+  if $proxysql::group != &#39;root&#39; {
+    group { $proxysql::group:
+      ensure =&gt; present,
+      system =&gt; true,
+    }
   }
 
   package { &#39;proxysql&#39;:
