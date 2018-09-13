@@ -43,27 +43,41 @@ describe 'proxysql class' do
     it { is_expected.to be_installed }
   end
 
+  describe user('proxysql') do
+    it { is_expected.to exist }
+  end
+
+  describe user('proxysql') do
+    it { is_expected.to belong_to_primary_group 'proxysql' }
+  end
+
   describe file('/etc/proxysql.cnf') do
     it { is_expected.to be_file }
-    it { is_expected.to be_owned_by 'root' }
-    it { is_expected.to be_grouped_into 'root' }
+    it { is_expected.to be_owned_by 'proxysql' }
+    it { is_expected.to be_grouped_into 'proxysql' }
     it { is_expected.to be_mode 600 }
     its(:content) { is_expected.to match %r{^datadir="/var/lib/proxysql"$} }
   end
 
   describe file('/var/lib/proxysql') do
     it { is_expected.to be_directory }
+    it { is_expected.to be_owned_by 'proxysql' }
+    it { is_expected.to be_grouped_into 'proxysql' }
     it { is_expected.to be_mode 700 }
   end
 
   describe file('/var/log/proxysql') do
     it { is_expected.to be_directory }
+    it { is_expected.to be_owned_by 'proxysql' }
+    it { is_expected.to be_grouped_into 'proxysql' }
     it { is_expected.to be_mode 700 }
   end
 
   describe file('/etc/systemd/system/proxysql.service') do
     it { is_expected.to be_file }
     its(:content) { is_expected.to match %r{^ExecStart=/usr/bin/proxysql -f -c /etc/proxysql.cnf$} }
+    its(:content) { is_expected.to match %r{^User=proxysql$} }
+    its(:content) { is_expected.to match %r{^Group=proxysql$} }
   end
 
   describe service('proxysql') do
