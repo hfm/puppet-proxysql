@@ -93,14 +93,14 @@ proxysql::configs:
 
 Parameter | Data type | Description | Default
 ---|---|---|---
+`owner`            | String                  | The user to run proxysql.                            | 'proxysql'
+`group`            | String                  | Which group should belong to proyxsql.               | 'proxysql'
 `package_ensure`   | String                  | What state the package should be in.                 | 'installed'
 `datadir`          | Stdlib::Absolutepath    | Path to data directory.                              | '/var/lib/proxysql'
 `datadir_mode`     | Stdlib::Filemode        | The permissions for the data directory.              | '0700'
 `logdir`           | Stdlib::Absolutepath    | Path to log directory.                               | '/var/log/proxysql'
 `logdir_mode`      | Stdlib::Filemode        | The permissions for the log directory.               | '0700'
 `configfile`       | Stdlib::Absolutepath    | Path to configuration file.                          | '/etc/proxysql.cnf'
-`configfile_owner` | String                  | The user of the config file.                         | 'root'
-`configfile_group` | String                  | The group of the config file.                        | 'root'
 `configfile_mode`  | Stdlib::Filemode        | The permissions for the config file.                 | '0600'
 `service_ensure`   | Stdlib::Ensure::Service | Whether proxysql should be running.                  | 'running'
 `service_enable`   | Boolean                 | Whether proxysql should be enabled to start at boot. | true

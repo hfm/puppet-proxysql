@@ -5,6 +5,8 @@ After=network.target
 [Service]
 ExecStart=/usr/bin/proxysql -f -c <%= $proxysql::configfile %>
 Restart=always
+User=<%= $proxysql::owner %>
+Group=<%= $proxysql::group %>
 
 [Install]
 WantedBy=multi-user.target
