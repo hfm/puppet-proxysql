@@ -40,9 +40,9 @@
 # @see http://www.proxysql.com/
 #
 # @param owner
-#   The user to run the proxysql.
+#   The user to run proxysql.
 # @param group
-#   Which group should belong the proyxsql.
+#   Which group should belong to proyxsql.
 # @param package_ensure
 #   What state the package should be in.
 # @param datadir
