@@ -1,12 +1,12 @@
 ---
+proxysql::owner: 'proxysql'
+proxysql::group: 'proxysql'
 proxysql::package_ensure: 'installed'
 proxysql::datadir: '/var/lib/proxysql'
 proxysql::datadir_mode: '0700'
 proxysql::logdir: '/var/log/proxysql'
 proxysql::logdir_mode: '0700'
 proxysql::configfile: '/etc/proxysql.cnf'
-proxysql::configfile_owner: 'root'
-proxysql::configfile_group: 'root'
 proxysql::configfile_mode: '0600'
 proxysql::service_ensure: 'running'
 proxysql::service_enable: true

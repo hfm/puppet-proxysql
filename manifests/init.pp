@@ -39,6 +39,10 @@
 # @see https://github.com/sysown/proxysql/wiki
 # @see http://www.proxysql.com/
 #
+# @param owner
+#   The user to run the proxysql.
+# @param group
+#   Which group should belong the proyxsql.
 # @param package_ensure
 #   What state the package should be in.
 # @param datadir
@@ -51,10 +55,6 @@
 #   The desired permissions mode for the file, in symbolic or numeric notation.
 # @param configfile
 #   The path to the default configuration.
-# @param configfile_owner
-#   The user to whom the file should belong.
-# @param configfile_group
-#   Which group should own the file.
 # @param configfile_mode
 #   The desired permissions mode for the file, in symbolic or numeric notation.
 # @param service_ensure
@@ -65,14 +65,14 @@
 #   A hash of parameters for configuring proxysql.cnf. See also https://github.com/sysown/proxysql/wiki/Configuring-ProxySQL
 #
 class proxysql (
+  String                  $owner,
+  String                  $group,
   String                  $package_ensure,
   Stdlib::Absolutepath    $datadir,
   Stdlib::Filemode        $datadir_mode,
   Stdlib::Absolutepath    $logdir,
   Stdlib::Filemode        $logdir_mode,
   Stdlib::Absolutepath    $configfile,
-  String                  $configfile_owner,
-  String                  $configfile_group,
   Stdlib::Filemode        $configfile_mode,
   Stdlib::Ensure::Service $service_ensure,
   Boolean                 $service_enable,
