@@ -4,15 +4,19 @@
 #
 class proxysql::install {
 
-  user { $proxysql::owner:
-    ensure => present,
-    gid    => $proxysql::group,
-    system => true,
+  if $proxysql::owner != 'root' {
+    user { $proxysql::owner:
+      ensure => present,
+      gid    => $proxysql::group,
+      system => true,
+    }
   }
 
-  group { $proxysql::group:
-    ensure => present,
-    system => true,
+  if $proxysql::group != 'root' {
+    group { $proxysql::group:
+      ensure => present,
+      system => true,
+    }
   }
 
   package { 'proxysql':
