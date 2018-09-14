@@ -7,7 +7,7 @@ class proxysql::install {
   if $proxysql::owner != 'root' {
     user { $proxysql::owner:
       ensure  => present,
-      commend => 'ProxySQL',
+      comment => 'ProxySQL',
       gid     => $proxysql::group,
       home    => $proxysql::datadir,
       shell   => '/bin/false',
