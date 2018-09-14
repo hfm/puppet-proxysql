@@ -6,9 +6,9 @@ admin_variables=
 <% if 'admin_variables' in $proxysql::configs {
   $proxysql::configs['admin_variables'].each |$k, $v| { -%>
   <%- if $v =~ String { -%>
-        <%= $k %>="<%= $v %>"
+	<%= $k %>="<%= $v %>"
   <%- } else { -%>
-        <%= $k %>=<%= $v %>
+	<%= $k %>=<%= $v %>
   <%- } -%>
 <% }} -%>
 }
@@ -18,9 +18,9 @@ mysql_variables=
 <% if 'mysql_variables' in $proxysql::configs {
   $proxysql::configs['mysql_variables'].each |$k, $v| { -%>
   <%- if $v =~ String { -%>
-        <%= $k %>="<%= $v %>"
+	<%= $k %>="<%= $v %>"
   <%- } else { -%>
-        <%= $k %>=<%= $v %>
+	<%= $k %>=<%= $v %>
   <%- } -%>
 <% }} -%>
 }
@@ -31,15 +31,15 @@ mysql_servers =
 (
 <% if 'mysql_servers' in $proxysql::configs {
   $proxysql::configs['mysql_servers'].each |$hashes| { -%>
-        {
+	{
   <% $hashes.each |$k, $v| { -%>
     <%- if $v =~ String { -%>
-                <%= $k %>="<%= $v %>"
+		<%= $k %>="<%= $v %>"
     <%- } else { -%>
-                <%= $k %>=<%= $v %>
+		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
-        },
+	},
 <% }} -%>
 )
 
@@ -49,15 +49,15 @@ mysql_users:
 (
 <% if 'mysql_users' in $proxysql::configs {
   $proxysql::configs['mysql_users'].each |$hashes| { -%>
-        {
+	{
   <% $hashes.each |$k, $v| { -%>
     <%- if $v =~ String { -%>
-                <%= $k %>="<%= $v %>"
+		<%= $k %>="<%= $v %>"
     <%- } else { -%>
-                <%= $k %>=<%= $v %>
+		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
-        },
+	},
 <% }} -%>
 )
 
@@ -68,15 +68,15 @@ mysql_query_rules:
 (
 <% if 'mysql_query_rules' in $proxysql::configs {
   $proxysql::configs['mysql_query_rules'].each |$hashes| { -%>
-        {
+	{
   <% $hashes.each |$k, $v| { -%>
     <%- if $v =~ String { -%>
-                <%= $k %>="<%= $v %>"
+		<%= $k %>="<%= $v %>"
     <%- } else { -%>
-                <%= $k %>=<%= $v %>
+		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
-        },
+	},
 <% }} -%>
 )
 
@@ -84,15 +84,15 @@ scheduler=
 (
 <% if 'scheduler' in $proxysql::configs {
   $proxysql::configs['scheduler'].each |$hashes| { -%>
-        {
+	{
   <% $hashes.each |$k, $v| { -%>
     <%- if $v =~ String { -%>
-                <%= $k %>="<%= $v %>"
+		<%= $k %>="<%= $v %>"
     <%- } else { -%>
-                <%= $k %>=<%= $v %>
+		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
-        },
+	},
 <% }} -%>
 )
 
@@ -101,14 +101,14 @@ mysql_replication_hostgroups=
 (
 <% if 'mysql_replication_hostgroups' in $proxysql::configs {
   $proxysql::configs['mysql_replication_hostgroups'].each |$hashes| { -%>
-        {
+	{
   <% $hashes.each |$k, $v| { -%>
     <%- if $v =~ String { -%>
-                <%= $k %>="<%= $v %>"
+	  <%= $k %>="<%= $v %>"
     <%- } else { -%>
-                <%= $k %>=<%= $v %>
+	  <%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
-        },
+	},
 <% }} -%>
 )
