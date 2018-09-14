@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.3.2](https://github.com/hfm/puppet-proxysql/compare/v0.3.1...v0.3.2) (2018-09-15)
+
+* Remove comma if the element is last [#13](https://github.com/hfm/puppet-proxysql/pull/13) ([hfm](https://github.com/hfm))
+* Set home directory and default shell for proxysql user [#12](https://github.com/hfm/puppet-proxysql/pull/12) ([hfm](https://github.com/hfm))
+
 ## [v0.3.1](https://github.com/hfm/puppet-proxysql/compare/v0.3.0...v0.3.1) (2018-09-14)
 
 * Use tabs for indentation [#11](https://github.com/hfm/puppet-proxysql/pull/11) ([hfm](https://github.com/hfm))

@@ -1,6 +1,6 @@
 {
   "name": "hfm-proxysql",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": "hfm",
   "summary": "Install, configures, and manages ProxySQL",
   "license": "MIT",
