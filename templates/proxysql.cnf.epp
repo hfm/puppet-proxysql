@@ -39,7 +39,11 @@ mysql_servers =
 		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
+  <%- if $proxysql::configs['mysql_servers'][-1] == $hashes { -%>
+	}
+  <%- } else { -%>
 	},
+  <%- } -%>
 <% }} -%>
 )
 
@@ -57,7 +61,11 @@ mysql_users:
 		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
+  <%- if $proxysql::configs['mysql_servers'][-1] == $hashes { -%>
+	}
+  <%- } else { -%>
 	},
+  <%- } -%>
 <% }} -%>
 )
 
@@ -76,7 +84,11 @@ mysql_query_rules:
 		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
+  <%- if $proxysql::configs['mysql_servers'][-1] == $hashes { -%>
+	}
+  <%- } else { -%>
 	},
+  <%- } -%>
 <% }} -%>
 )
 
@@ -92,7 +104,11 @@ scheduler=
 		<%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
+  <%- if $proxysql::configs['mysql_servers'][-1] == $hashes { -%>
+	}
+  <%- } else { -%>
 	},
+  <%- } -%>
 <% }} -%>
 )
 
@@ -109,6 +125,10 @@ mysql_replication_hostgroups=
 	  <%= $k %>=<%= $v %>
     <%- } -%>
   <% } -%>
+  <%- if $proxysql::configs['mysql_servers'][-1] == $hashes { -%>
+	}
+  <%- } else { -%>
 	},
+  <%- } -%>
 <% }} -%>
 )
