@@ -45,10 +45,13 @@ describe 'proxysql class' do
 
   describe user('proxysql') do
     it { is_expected.to exist }
+    it { is_expected.to have_home_directory '/var/lib/proxysql' }
+    it { is_expected.to have_login_shell '/bin/false' }
+    it { is_expected.to belong_to_primary_group 'proxysql' }
   end
 
-  describe user('proxysql') do
-    it { is_expected.to belong_to_primary_group 'proxysql' }
+  describe group('proxysql') do
+    it { is_expected.to exist }
   end
 
   describe file('/etc/proxysql.cnf') do
