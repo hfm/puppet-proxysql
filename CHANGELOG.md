@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.4.0](https://github.com/hfm/puppet-proxysql/compare/v0.3.2...v0.4.0) (2018-09-27)
+
+* Support proxysql-servers [#14](https://github.com/hfm/puppet-proxysql/pull/14) ([hfm](https://github.com/hfm))
+
 ## [v0.3.2](https://github.com/hfm/puppet-proxysql/compare/v0.3.1...v0.3.2) (2018-09-15)
 
 * Remove comma if the element is last [#13](https://github.com/hfm/puppet-proxysql/pull/13) ([hfm](https://github.com/hfm))
