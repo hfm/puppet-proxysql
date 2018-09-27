@@ -132,3 +132,25 @@ mysql_replication_hostgroups=
   <%- } -%>
 <% }} -%>
 )
+
+
+<% if 'proxysql_servers' in $proxysql::configs { %>
+proxysql_servers=
+(
+  <% $proxysql::configs['proxysql_servers'].each |$hashes| { -%>
+	{
+    <% $hashes.each |$k, $v| { -%>
+      <%- if $v =~ String { -%>
+	  <%= $k %>="<%= $v %>"
+      <%- } else { -%>
+	  <%= $k %>=<%= $v %>
+      <%- } -%>
+    <% } -%>
+    <%- if $proxysql::configs['proxysql_servers'][-1] == $hashes { -%>
+	}
+    <%- } else { -%>
+	},
+    <%- } -%>
+  <% } -%>
+)
+<% } -%>
