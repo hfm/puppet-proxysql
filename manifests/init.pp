@@ -83,6 +83,7 @@ class proxysql (
   Stdlib::Ensure::Service $service_ensure,
   Boolean                 $service_enable,
   Hash                    $configs,
+  Boolean                 $refresh_from_config,
 ) {
 
   include proxysql::repo
@@ -93,6 +94,11 @@ class proxysql (
   Class['::proxysql::repo']
   -> Class['::proxysql::install']
   -> Class['::proxysql::config']
-  ~> Class['::proxysql::service']
+
+  if $refresh_from_config {
+    Class['::proxysql::config'] ~> Class['::proxysql::service']
+  } else {
+    Class['::proxysql::config'] -> Class['::proxysql::service']
+  }
 
 }
