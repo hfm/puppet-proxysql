@@ -105,6 +105,7 @@ Parameter | Data type | Description | Default
 `service_ensure`   | Stdlib::Ensure::Service | Whether proxysql should be running.                  | 'running'
 `service_enable`   | Boolean                 | Whether proxysql should be enabled to start at boot. | true
 `configs`          | Hash                    | The Configuration hashes for proxysql.cnf            | See [data/common.yaml](./data/common.yaml)
+`refresh_from_config` | Boolean              | Whether proxysql should be restarted after updating configuration. | false
 
 #### Private Classes
 

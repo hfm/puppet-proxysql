@@ -43,3 +43,4 @@ proxysql::configs:
   mysql_query_rules: {}
   scheduler: {}
   mysql_replication_hostgroups: {}
+proxysql::refresh_from_config: false
