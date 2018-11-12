@@ -63,6 +63,8 @@
 #   The path to the default configuration.
 # @param configfile_mode
 #   The desired permissions mode for the file, in symbolic or numeric notation.
+# @param configfile_show_diff
+#   Whether to display differences when the file changes, defaulting to false.
 # @param service_ensure
 #   Whether a service should be running.
 # @param service_enable
