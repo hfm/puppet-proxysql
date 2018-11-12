@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.6.0](https://github.com/hfm/puppet-proxysql/compare/v0.5.0...v0.6.0) (2018-11-12)
+
+* Set show_diff of proxysql.cnf to false by default. [#17](https://github.com/hfm/puppet-proxysql/pull/17) ([hfm](https://github.com/hfm))
+* Update pdk to 1.7.0 [#16](https://github.com/hfm/puppet-proxysql/pull/16) ([hfm](https://github.com/hfm))
+
 ## [v0.5.0](https://github.com/hfm/puppet-proxysql/compare/v0.4.0...v0.5.0) (2018-10-01)
 
 * Flag to refresh after configuration [#15](https://github.com/hfm/puppet-proxysql/pull/15) ([hfm](https://github.com/hfm))
