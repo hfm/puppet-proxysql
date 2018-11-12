@@ -105,21 +105,27 @@
       stacksize                 =&gt; 1048576,
       ping_interval_server_msec =&gt; 10000,
     },
-    mysql_servers =&gt; {
-      address   =&gt; mysql,
-      port      =&gt; 3306,
-      hostgroup =&gt; 0,
-    },
-    mysql_users =&gt; {
-      username =&gt; root,
-    },
-    mysql_query_rules =&gt; {
-      rule_id       =&gt; 1,
-      active        =&gt; 1,
-      match_pattern =&gt; &#39;.&#39;,
-      log           =&gt; 1,
-      apply         =&gt; 0,
-    },
+    mysql_servers =&gt; [
+      {
+        address   =&gt; mysql,
+        port      =&gt; 3306,
+        hostgroup =&gt; 0,
+      },
+    ],
+    mysql_users =&gt; [
+      {
+        username =&gt; root,
+      },
+    ],
+    mysql_query_rules =&gt; [
+      {
+        rule_id       =&gt; 1,
+        active        =&gt; 1,
+        match_pattern =&gt; &#39;.&#39;,
+        log           =&gt; 1,
+        apply         =&gt; 0,
+      },
+    ],
   },
 }</code></pre>
     
@@ -273,6 +279,22 @@
   
     <li>
       
+        <span class='name'>configfile_show_diff</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether to display differences when the file changes, defaulting to false.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
         <span class='name'>service_ensure</span>
       
       
@@ -320,6 +342,17 @@ href="https://github.com/sysown/proxysql/wiki/Configuring-ProxySQL">github.com/s
       
     </li>
   
+    <li>
+      
+        <span class='name'>refresh_from_config</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
 </ul>
 
 
@@ -339,14 +372,6 @@ href="https://github.com/sysown/proxysql/wiki/Configuring-ProxySQL">github.com/s
         <pre class="lines">
 
 
-67
-68
-69
-70
-71
-72
-73
-74
 75
 76
 77
@@ -364,10 +389,25 @@ href="https://github.com/sysown/proxysql/wiki/Configuring-ProxySQL">github.com/s
 89
 90
 91
-92</pre>
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</pre>
       </td>
       <td>
-        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 67</span>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 75</span>
 
 class proxysql (
   String                  $owner,
@@ -379,9 +419,11 @@ class proxysql (
   Stdlib::Filemode        $logdir_mode,
   Stdlib::Absolutepath    $configfile,
   Stdlib::Filemode        $configfile_mode,
+  Boolean                 $configfile_show_diff,
   Stdlib::Ensure::Service $service_ensure,
   Boolean                 $service_enable,
   Hash                    $configs,
+  Boolean                 $refresh_from_config,
 ) {
 
   include proxysql::repo
@@ -392,7 +434,12 @@ class proxysql (
   Class[&#39;::proxysql::repo&#39;]
   -&gt; Class[&#39;::proxysql::install&#39;]
   -&gt; Class[&#39;::proxysql::config&#39;]
-  ~&gt; Class[&#39;::proxysql::service&#39;]
+
+  if $refresh_from_config {
+    Class[&#39;::proxysql::config&#39;] ~&gt; Class[&#39;::proxysql::service&#39;]
+  } else {
+    Class[&#39;::proxysql::config&#39;] -&gt; Class[&#39;::proxysql::service&#39;]
+  }
 
 }</pre>
       </td>

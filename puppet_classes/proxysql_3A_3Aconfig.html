@@ -102,7 +102,8 @@
 11
 12
 13
-14</pre>
+14
+15</pre>
       </td>
       <td>
         <pre class="code"><span class="info file"># File 'manifests/config.pp', line 4</span>
@@ -110,11 +111,12 @@
 class proxysql::config {
 
   file { $proxysql::configfile:
-    ensure  =&gt; file,
-    owner   =&gt; $proxysql::owner,
-    group   =&gt; $proxysql::group,
-    mode    =&gt; $proxysql::configfile_mode,
-    content =&gt; epp(&#39;proxysql/proxysql.cnf.epp&#39;),
+    ensure    =&gt; file,
+    owner     =&gt; $proxysql::owner,
+    group     =&gt; $proxysql::group,
+    mode      =&gt; $proxysql::configfile_mode,
+    content   =&gt; epp(&#39;proxysql/proxysql.cnf.epp&#39;),
+    show_diff =&gt; $proxysql::configfile_show_diff,
   }
 
 }</pre>

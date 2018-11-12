@@ -155,17 +155,17 @@ proxysql::configs:
     stacksize: 1048576
     ping_interval_server_msec: 10000
   mysql_servers:
-    address: mysql
-    port: 3306
-    hostgroup: 0
+    - address: mysql
+      port: 3306
+      hostgroup: 0
   mysql_users:
-    username: root
+    - username: root
   mysql_query_rules:
-    rule_id: 1
-    active: 1
-    match_pattern: &#39;.&#39;
-    log: 1
-    apply: 0
+    - rule_id: 1
+      active: 1
+      match_pattern: &#39;.&#39;
+      log: 1
+      apply: 0
 </code></pre>
 
 <h2 id="label-Reference">Reference</h2>
@@ -187,11 +187,15 @@ The permissions for the log directory. | &#39;0700&#39;
 <code>configfile</code> | Stdlib::Absolutepath | Path to configuration
 file. | &#39;/etc/proxysql.cnf&#39; <code>configfile_mode</code> |
 Stdlib::Filemode | The permissions for the config file. | &#39;0600&#39;
-<code>service_ensure</code> | Stdlib::Ensure::Service | Whether proxysql
-should be running. | &#39;running&#39; <code>service_enable</code> |
-Boolean | Whether proxysql should be enabled to start at boot. | true
-<code>configs</code> | Hash | The Configuration hashes for proxysql.cnf |
-See <a href="./data/common.yaml">data/common.yaml</a></p>
+<code>configfile_show_diff</code> | Boolean | Whether to display
+differences when the file changes | false <code>service_ensure</code> |
+Stdlib::Ensure::Service | Whether proxysql should be running. |
+&#39;running&#39; <code>service_enable</code> | Boolean | Whether proxysql
+should be enabled to start at boot. | true <code>configs</code> | Hash |
+The Configuration hashes for proxysql.cnf | See <a
+href="./data/common.yaml">data/common.yaml</a>
+<code>refresh_from_config</code> | Boolean | Whether proxysql should be
+restarted after updating configuration. | false</p>
 
 <h4 id="label-Private+Classes">Private Classes</h4>
 <ul><li>
