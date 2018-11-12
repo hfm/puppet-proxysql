@@ -102,6 +102,7 @@ Parameter | Data type | Description | Default
 `logdir_mode`      | Stdlib::Filemode        | The permissions for the log directory.               | '0700'
 `configfile`       | Stdlib::Absolutepath    | Path to configuration file.                          | '/etc/proxysql.cnf'
 `configfile_mode`  | Stdlib::Filemode        | The permissions for the config file.                 | '0600'
+`configfile_show_diff` | Boolean             | Whether to display differences when the file changes | false
 `service_ensure`   | Stdlib::Ensure::Service | Whether proxysql should be running.                  | 'running'
 `service_enable`   | Boolean                 | Whether proxysql should be enabled to start at boot. | true
 `configs`          | Hash                    | The Configuration hashes for proxysql.cnf            | See [data/common.yaml](./data/common.yaml)
