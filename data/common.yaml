@@ -8,6 +8,7 @@ proxysql::logdir: '/var/log/proxysql'
 proxysql::logdir_mode: '0700'
 proxysql::configfile: '/etc/proxysql.cnf'
 proxysql::configfile_mode: '0600'
+proxysql::configfile_show_diff: false
 proxysql::service_ensure: 'running'
 proxysql::service_enable: true
 proxysql::configs:
@@ -44,4 +45,3 @@ proxysql::configs:
   scheduler: {}
   mysql_replication_hostgroups: {}
 proxysql::refresh_from_config: false
-proxysql::configfile_show_diff: false
