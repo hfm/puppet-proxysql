@@ -80,6 +80,7 @@ class proxysql (
   Stdlib::Filemode        $logdir_mode,
   Stdlib::Absolutepath    $configfile,
   Stdlib::Filemode        $configfile_mode,
+  Boolean                 $configfile_show_diff,
   Stdlib::Ensure::Service $service_ensure,
   Boolean                 $service_enable,
   Hash                    $configs,
